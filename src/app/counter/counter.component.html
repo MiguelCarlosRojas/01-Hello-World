@@ -1,8 +1,16 @@
-<div>
-    <span>Contador: {{ counter }}</span>
+<div class="container">
+    <!-- Contador -->
+    <div class="counter">Contador: {{ counter }}</div>
+  
+    <!-- Botón de incremento -->
+    <button class="button" (click)="increase()">+1</button>
+  
+    <!-- Botón de disminución (deshabilitado cuando no es posible disminuir más) -->
+    <button class="button" (click)="decrease()" [disabled]="!activeDecrease">-1</button>
     <br>
-    <button type="button" (click)="increase()">+1</button>
-    <button type="button" (click)="decrease()" [disabled]="activeDecrease">-1</button>
-    <br>
-    <button type="button" (click)="inactiveDecrease()">Activar/Inactivar decrease</button>
-</div>
+  
+    <!-- Botón para activar o desactivar la disminución -->
+    <button class="toggle-button" (click)="inactiveDecrease()">
+      {{ activeDecrease ? 'Inactivar' : 'Activar' }} disminución
+    </button>
+  </div>
